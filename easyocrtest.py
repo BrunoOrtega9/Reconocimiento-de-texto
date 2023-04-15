@@ -4,12 +4,16 @@ import easyocr
 #dentro de los corchetes va o van los idiomas que usaremos para leer
 reader = easyocr.Reader(["es"], gpu = False)
 
+#image= cv2.imread("imagen001.jpg")
 image= cv2.imread("imagen001.jpg")
+
 
 #con readtext nos regresa lo que escribimos y al ponerle detail = 0 nos regresa solo los textos reconocidos
 #si usamos paragraph = True nos arroja un parrafo 
-#result = reader.readtext(image, detail=0)
-#result
+result = reader.readtext(image)
+
+for res in result:
+    print("res:", res)
 
 #mostrar la imagen 
 cv2.imshow("Image", image)
